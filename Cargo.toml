@@ -4,3 +4,4 @@ version = "0.1.0"
 authors = ["Flavien SCHRIEVER <flay.schriever@gmail.com>"]
 
 [dependencies]
+fomat-macros = "0.1.1"
