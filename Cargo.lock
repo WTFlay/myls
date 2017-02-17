@@ -1,14 +1,4 @@
 [root]
 name = "myls"
 version = "0.1.0"
-dependencies = [
- "fomat-macros 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
-]
 
-[[package]]
-name = "fomat-macros"
-version = "0.1.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-
-[metadata]
-"checksum fomat-macros 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = "9852f98cb3e035532c9ecf16a7f3be1ea5b120e6a91d9a84aa5933ca0e26bc99"
