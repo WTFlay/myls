@@ -4,6 +4,11 @@ pub struct Options {
     pub list: bool,
 }
 
+/// Return vector with all files name contain in dir_name
+/// given in parameters.
+///
+/// # Arguments
+/// * `dir_name` - A string slice that hold the name of directory
 pub fn get_files_in_dir(dir_name: &str) -> Option<Vec<String>> {
     match fs::metadata(dir_name) {
         Ok(file_metadata) => {
@@ -33,6 +38,8 @@ pub fn get_files_in_dir(dir_name: &str) -> Option<Vec<String>> {
     }
 }
 
+/// Show all files containes in vector with appropriate format
+/// by options given in parameters
 pub fn show_files(name_files: Vec<&str>, options: &Options) -> bool {
     for (index, name) in name_files.iter().enumerate() {
         if options.list {
