@@ -9,7 +9,7 @@ fn main() {
         _   => { env::args().skip(1).map(|x| x.to_string()).collect() },
     };
 
-    let options = myls::Options { list: true };
+    let options = myls::Options { list: true, all: true };
 
     let mut simple_files: Vec<&str> = Vec::new();
     let mut dir_files: Vec<&str> = Vec::new();

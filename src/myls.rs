@@ -2,6 +2,7 @@ use std::fs;
 
 pub struct Options {
     pub list: bool,
+    pub all: bool,
 }
 
 /// Return vector with all files name contain in dir_name
@@ -42,6 +43,9 @@ pub fn get_files_in_dir(dir_name: &str) -> Option<Vec<String>> {
 /// by options given in parameters
 pub fn show_files(name_files: Vec<&str>, options: &Options) -> bool {
     for (index, name) in name_files.iter().enumerate() {
+
+        // If option all is false and the filename begin by '.', continue for.
+
         if options.list {
             println!("{}", name);
         } else {
