@@ -1,3 +1,6 @@
+extern crate users;
+use self::users::get_user_by_uid;
+
 use std::fs;
 use std::fs::Metadata;
 use std::io::Error;
@@ -94,7 +97,11 @@ fn get_charactere_type(metadata: &Metadata) -> char {
 fn show_long_file(name_file: &str) {
     match fs::metadata(name_file) {
         Ok(metadata) => {
-            println!("{} {} {}", get_charactere_type(&metadata), metadata.nlink(), name_file);
+            let user: String = match get_user_by_uid(metadata.uid()) {
+                Some(user) => user.name().to_string(),
+                None => "unknow".to_string(),
+            };
+            println!("{} {} {} {}", get_charactere_type(&metadata), metadata.nlink(), user, name_file);
         },
         Err(err) => {
             print_error(name_file, err);

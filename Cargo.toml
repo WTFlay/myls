@@ -2,3 +2,6 @@
 name = "myls"
 version = "0.1.0"
 authors = ["Flavien SCHRIEVER <flay.schriever@gmail.com>"]
+
+[dependencies]
+users = "0.5"
