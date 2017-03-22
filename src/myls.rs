@@ -21,6 +21,13 @@ fn print_error(file_name: &str, err: Error) {
 ///
 /// # Arguments
 /// * `dir_name` - A string slice that hold the name of directory
+/// TODO
+/// Use try! for reduce «if let»
+/// And use map
+/// let mut read = fs::read_dir(dir_name);
+/// try!(read);
+/// let file_names = read.iter().filter_map(|s| s).filter_map(|f| f.path().as_path().to_str())
+/// https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.filter_map
 pub fn get_files_in_dir(dir_name: &str) -> Option<Vec<String>> {
     match fs::metadata(dir_name) {
         Ok(file_metadata) => {
