@@ -80,21 +80,14 @@ pub fn show_files(name_files: Vec<&str>, options: &Options) -> bool {
 }
 
 fn get_charactere_type(metadata: &Metadata) -> char {
-    let filetype = metadata.file_type();
-    if filetype.is_dir() {
-        'd'
-    } else if filetype.is_symlink() {
-        'l'
-    } else if filetype.is_block_device() {
-        'b'
-    } else if filetype.is_char_device() {
-        'c'
-    } else if filetype.is_fifo() {
-        'p'
-    } else if filetype.is_socket() {
-        's'
-    } else {
-        '-'
+    match metadata.file_type() {
+        t if t.is_dir()             => 'd',
+        t if t.is_symlink()         => 'l',
+        t if t.is_block_device()    => 'b',
+        t if t.is_char_device()     => 'c',
+        t if t.is_fifo()            => 'p',
+        t if t.is_socket()          => 's',
+        _                           => '-',
     }
 }
 
